@@ -1,0 +1,433 @@
+{
+  "object": "database",
+  "id": "d9f7eb8e-1a27-4375-9669-39e4cd841f1c",
+  "cover": null,
+  "icon": {
+    "type": "emoji",
+    "emoji": "💘"
+  },
+  "created_time": "2021-11-19T02:35:00.000Z",
+  "last_edited_time": "2021-11-19T02:36:00.000Z",
+  "title": [
+    {
+      "type": "text",
+      "text": {
+        "content": "Copy of ",
+        "link": null
+      },
+      "annotations": {
+        "bold": false,
+        "italic": false,
+        "strikethrough": false,
+        "underline": false,
+        "code": false,
+        "color": "default"
+      },
+      "plain_text": "Copy of ",
+      "href": null
+    },
+    {
+      "type": "text",
+      "text": {
+        "content": "오늘의 코드리뷰",
+        "link": null
+      },
+      "annotations": {
+        "bold": false,
+        "italic": false,
+        "strikethrough": false,
+        "underline": false,
+        "code": false,
+        "color": "default"
+      },
+      "plain_text": "오늘의 코드리뷰",
+      "href": null
+    }
+  ],
+  "properties": {
+    "코드리뷰 2": {
+      "id": "MI%3BH",
+      "name": "코드리뷰 2",
+      "type": "multi_select",
+      "multi_select": {
+        "options": [
+          {
+            "id": "4cc041af-6a59-4c52-b651-0d9df38e3c61",
+            "name": "기웅민",
+            "color": "gray"
+          },
+          {
+            "id": "a8288e72-6fbd-4074-ac15-4b844ed3d0d4",
+            "name": "김경태",
+            "color": "blue"
+          },
+          {
+            "id": "d0a2f55f-ea3d-43a9-9127-22777e670106",
+            "name": "김단",
+            "color": "green"
+          },
+          {
+            "id": "b11a3b04-dc9a-47d3-80a0-7a4ab6f7cbc2",
+            "name": "김예림",
+            "color": "brown"
+          },
+          {
+            "id": "a5e92960-420f-4bc7-9d91-f95cc1ee7f11",
+            "name": "나상민",
+            "color": "red"
+          },
+          {
+            "id": "6ef27993-bf2b-4861-b1c7-262e434f2b48",
+            "name": "노영진",
+            "color": "pink"
+          },
+          {
+            "id": "05d40c4d-bfb6-4e14-9e04-dd6ea8b23369",
+            "name": "박규리",
+            "color": "orange"
+          },
+          {
+            "id": "44d47034-bace-499e-a191-e740c88867db",
+            "name": "박혜민",
+            "color": "yellow"
+          },
+          {
+            "id": "48431a60-d174-4333-a2cb-55f1046bf286",
+            "name": "서동수",
+            "color": "default"
+          },
+          {
+            "id": "af5c794b-6ee4-46a3-8499-3eb60a7b2a92",
+            "name": "서현욱",
+            "color": "purple"
+          },
+          {
+            "id": "5e465e86-f32d-44b9-b750-659dd8fed2fa",
+            "name": "신요한",
+            "color": "green"
+          },
+          {
+            "id": "1956166e-7f18-4168-8e91-c32caee77c6f",
+            "name": "오성훈",
+            "color": "default"
+          },
+          {
+            "id": "1fda5b82-509f-4e75-b923-3af5659231cf",
+            "name": "옥지수",
+            "color": "red"
+          },
+          {
+            "id": "360f23e7-abfd-4d14-8c02-a8f1e38a39af",
+            "name": "윤진경",
+            "color": "pink"
+          },
+          {
+            "id": "5cc6a385-d7d2-490b-881a-a632a8761b33",
+            "name": "윤진호",
+            "color": "pink"
+          },
+          {
+            "id": "76b8e612-f708-479c-8eb5-0dad813105d7",
+            "name": "이수인",
+            "color": "pink"
+          },
+          {
+            "id": "8bdff2bf-98f5-4ff8-bfca-0652dca86935",
+            "name": "이시현",
+            "color": "brown"
+          },
+          {
+            "id": "8de3d489-5b42-4f75-90ae-82872f7d1281",
+            "name": "이양우",
+            "color": "gray"
+          },
+          {
+            "id": "e613331e-070e-4de4-9bb8-9107deb1e1a7",
+            "name": "강서지",
+            "color": "red"
+          },
+          {
+            "id": "c056a9a8-2198-4c95-a66f-3f76f533fe04",
+            "name": "공우정",
+            "color": "gray"
+          },
+          {
+            "id": "b62df5ba-b6dc-447f-a737-6b1969b76164",
+            "name": "구완모",
+            "color": "orange"
+          },
+          {
+            "id": "40116a90-0479-4b95-bb74-44475b09161d",
+            "name": "이찬주",
+            "color": "brown"
+          },
+          {
+            "id": "59b4eeb1-4eb3-48b0-973d-f2701029a1b3",
+            "name": "최서영",
+            "color": "blue"
+          },
+          {
+            "id": "af41ce7d-a589-40c2-818a-64259907f81b",
+            "name": "하태용",
+            "color": "pink"
+          },
+          {
+            "id": "025e2404-2d26-408f-8d13-42b18b121eea",
+            "name": "한소영",
+            "color": "yellow"
+          },
+          {
+            "id": "3e818144-354f-4df0-9b0e-8c071bbd24f2",
+            "name": "한지원",
+            "color": "gray"
+          },
+          {
+            "id": "38175a4d-51a8-4455-abb3-6c645deed6ce",
+            "name": "이호찬",
+            "color": "brown"
+          },
+          {
+            "id": "b1429667-596d-422f-a1c2-8770ec00ef60",
+            "name": "임소정",
+            "color": "brown"
+          },
+          {
+            "id": "01b83dd4-9f30-40d3-8a4c-af69bb9776b7",
+            "name": "장혜식",
+            "color": "pink"
+          },
+          {
+            "id": "cb610e87-6b05-410f-a179-8523e4353ce3",
+            "name": "전수진",
+            "color": "purple"
+          },
+          {
+            "id": "908f1e31-3abf-4a98-a71e-93dff98c04b0",
+            "name": "조은별",
+            "color": "green"
+          },
+          {
+            "id": "572bb11f-4c0f-47ea-a018-03beef35a76a",
+            "name": "최리",
+            "color": "orange"
+          },
+          {
+            "id": "5098b8d6-1553-43d5-8a17-7c336daad13f",
+            "name": "최민지",
+            "color": "brown"
+          },
+          {
+            "id": "d6a7b57f-f79f-48f4-8643-9c8014be0736",
+            "name": "저스틴2",
+            "color": "green"
+          }
+        ]
+      }
+    },
+    "코드리뷰 1": {
+      "id": "e%3F%5Cy",
+      "name": "코드리뷰 1",
+      "type": "multi_select",
+      "multi_select": {
+        "options": [
+          {
+            "id": "81f29b76-0c7d-4285-a38a-3997ec09de0d",
+            "name": "구완모",
+            "color": "gray"
+          },
+          {
+            "id": "0b73efa4-9860-44cf-860d-8bad2db33dcc",
+            "name": "김경태",
+            "color": "red"
+          },
+          {
+            "id": "76b7414c-6214-473e-93c0-6765ccf49360",
+            "name": "김단",
+            "color": "default"
+          },
+          {
+            "id": "98609fda-2ac3-4a55-a1a1-84608803dd66",
+            "name": "김예림",
+            "color": "brown"
+          },
+          {
+            "id": "7e808d40-f527-4798-84ef-72e7aa9c06b2",
+            "name": "나상민",
+            "color": "yellow"
+          },
+          {
+            "id": "4080df3c-b173-4d89-b4d6-5646ebd37bed",
+            "name": "노영진",
+            "color": "orange"
+          },
+          {
+            "id": "4f9ef847-ce99-4cc5-a03c-eaa6cdb73612",
+            "name": "박규리",
+            "color": "green"
+          },
+          {
+            "id": "f8c37d7a-c1e2-472c-9d88-de5b7b67614f",
+            "name": "박혜민",
+            "color": "purple"
+          },
+          {
+            "id": "21a4e64e-aea4-489e-b7c0-464ececf7464",
+            "name": "서동수",
+            "color": "blue"
+          },
+          {
+            "id": "7fb6d25a-5969-4d29-8945-38c078c2b67d",
+            "name": "서현욱",
+            "color": "pink"
+          },
+          {
+            "id": "1c467027-3dad-4836-b57e-7c1a1793df4a",
+            "name": "신요한",
+            "color": "pink"
+          },
+          {
+            "id": "59c714b6-3070-4d1b-8ce7-d72edb38e436",
+            "name": "오성훈",
+            "color": "pink"
+          },
+          {
+            "id": "53061a2b-37f9-4f25-bbe4-d48f3d49c271",
+            "name": "옥지수",
+            "color": "green"
+          },
+          {
+            "id": "088ca622-9535-44ff-b819-2bcc47340733",
+            "name": "윤진경",
+            "color": "gray"
+          },
+          {
+            "id": "146d2a7a-d2de-4ac7-aa5d-db04b4f44dae",
+            "name": "윤진호",
+            "color": "orange"
+          },
+          {
+            "id": "8ebb33fd-8e98-463e-a70c-1c82cc210bab",
+            "name": "이수인",
+            "color": "brown"
+          },
+          {
+            "id": "4e48ba9d-ea99-4b0b-8a89-abd703777d16",
+            "name": "이시현",
+            "color": "pink"
+          },
+          {
+            "id": "52b52359-a1e1-4150-8e9f-ba0008de8b2c",
+            "name": "이양우",
+            "color": "purple"
+          },
+          {
+            "id": "115190be-9bf7-4616-ab00-b62376dba8df",
+            "name": "강서지",
+            "color": "default"
+          },
+          {
+            "id": "88a4d503-bf5d-4f81-92c8-1ba99fff06c8",
+            "name": "공우정",
+            "color": "default"
+          },
+          {
+            "id": "f94b3446-620e-41a1-a84a-8ea35260ced7",
+            "name": "기웅민",
+            "color": "red"
+          },
+          {
+            "id": "c82e500a-669c-4807-a4a7-865538e2133a",
+            "name": "이찬주",
+            "color": "brown"
+          },
+          {
+            "id": "048f986b-dd1f-4d20-9466-aefe83b52ece",
+            "name": "이호찬",
+            "color": "gray"
+          },
+          {
+            "id": "4004cdb1-a1e5-4590-b70d-74571c8c778a",
+            "name": "임소정",
+            "color": "yellow"
+          },
+          {
+            "id": "2f9afe41-a8ad-46ab-b461-24344dddd7e3",
+            "name": "장혜식",
+            "color": "yellow"
+          },
+          {
+            "id": "12b89df6-8c75-42d6-896a-a5a79b68f27f",
+            "name": "전수진",
+            "color": "default"
+          },
+          {
+            "id": "897c048a-c3c0-4c45-a465-9f659120531a",
+            "name": "조은별",
+            "color": "pink"
+          },
+          {
+            "id": "759fae43-8998-4fdf-bc6c-0876e0ceef93",
+            "name": "최리",
+            "color": "blue"
+          },
+          {
+            "id": "2182a560-0754-42c1-bdaa-cb48c978897a",
+            "name": "최민지",
+            "color": "default"
+          },
+          {
+            "id": "91d559be-0131-42a5-bd2c-d42ee3c76a46",
+            "name": "최서영",
+            "color": "red"
+          },
+          {
+            "id": "61d98de3-789e-494e-9bd5-507d127ec0cb",
+            "name": "하태용",
+            "color": "red"
+          },
+          {
+            "id": "bba5e2b3-8bf1-43b4-a03f-135d8c70990f",
+            "name": "한소영",
+            "color": "orange"
+          },
+          {
+            "id": "2c61a0bc-b698-494c-874d-c7bf3587602a",
+            "name": "한지원",
+            "color": "green"
+          },
+          {
+            "id": "8c1a4b45-ecc7-4929-a0cf-328cc9f985ab",
+            "name": "김원모 김태우",
+            "color": "red"
+          },
+          {
+            "id": "14be89e1-3f54-420a-9bd0-11e82fe181af",
+            "name": "이수민",
+            "color": "pink"
+          },
+          {
+            "id": "dba26f80-adf3-46e5-8138-78622e204f90",
+            "name": "저스틴",
+            "color": "yellow"
+          },
+          {
+            "id": "bdd758ba-604b-4b61-b4fb-d4e015e69590",
+            "name": "저스틴2",
+            "color": "yellow"
+          }
+        ]
+      }
+    },
+    "이름": {
+      "id": "title",
+      "name": "이름",
+      "type": "title",
+      "title": {}
+    }
+  },
+  "parent": {
+    "type": "page_id",
+    "page_id": "8bf04e0f-1f04-4768-889a-72db72186058"
+  },
+  "url": "https://www.notion.so/d9f7eb8e1a274375966939e4cd841f1c"
+}

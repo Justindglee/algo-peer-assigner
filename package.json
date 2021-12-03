@@ -1,0 +1,22 @@
+{
+  "name": "peer-assigner",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@notionhq/client": "^0.4.8",
+    "axios": "^0.24.0",
+    "csv-parser": "^3.0.0",
+    "csv-string": "^4.0.1",
+    "lodash": "^4.17.21",
+    "node-fetch": "^3.1.0",
+    "open": "^8.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

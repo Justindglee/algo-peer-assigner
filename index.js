@@ -1,9 +1,11 @@
+require("dotenv").config();
 const { Client } = require("@notionhq/client");
+
 const notionClient = new Client({
-  auth: "secret_4zre1IXKeaoVfeD7bRRQ4AsACKXsoUZ3jE7KHTO9Po9",
+  auth: process.env.NOTION_API_KEY,
 });
 
-const DAY = 13; // 이 숫자를 하루씩 올려주세요
+const DAY = 23; // 이 숫자를 하루씩 올려주세요
 
 const bootCampStudentList = [
   "강서지",
@@ -41,8 +43,6 @@ const bootCampStudentList = [
   "한지원",
 ];
 
-const assigner = {};
-
 async function assignAlgoReviewer(day) {
   const students1 = [...bootCampStudentList];
   const students2 = [...bootCampStudentList];
@@ -72,13 +72,6 @@ async function assignAlgoReviewer(day) {
     return;
   }
 
-  let csvContent = "data:text/csv;charset=utf-8,";
-
-  peerReviewerList.forEach((peerSet) => {
-    let row = peerSet.join(",");
-    csvContent += row + "\r\n";
-  });
-
   // peerReviewerList 가 배분된 결과
   peerReviewerList.forEach((el) => console.log(el));
 
@@ -89,7 +82,7 @@ async function assignAlgoReviewer(day) {
 
     // 예시 데이터: retrieve_database.json
     const databaseSchemeRes = await notionClient.databases.retrieve({
-      database_id: "d9f7eb8e1a274375966939e4cd841f1c",
+      database_id: process.env.NOTION_DATABASE_ID,
     });
 
     const propertySchemaList = Object.values(
@@ -108,7 +101,7 @@ async function assignAlgoReviewer(day) {
 
     // 예시 데이터: query_database.json
     const { results: queryResults } = await notionClient.databases.query({
-      database_id: "d9f7eb8e1a274375966939e4cd841f1c",
+      database_id: process.env.NOTION_DATABASE_ID,
       sorts: [
         {
           direction: "ascending",

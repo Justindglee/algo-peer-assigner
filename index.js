@@ -1,46 +1,46 @@
-require("dotenv").config();
-const { Client } = require("@notionhq/client");
+import env from "dotenv";
+import { Client } from "@notionhq/client";
+
+env.config();
 
 const notionClient = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-const DAY = 23; // 이 숫자를 하루씩 올려주세요
+const DAY = 1; // 이 숫자를 하루씩 올려주세요!
 
 const bootCampStudentList = [
-  "강서지",
-  "공우정",
-  "구완모",
-  "기웅민",
-  "김경태",
-  "김단",
-  "김예림",
-  "나상민",
-  "노영진",
-  "박규리",
-  "박혜민",
-  "서동수",
-  "서현욱",
-  "신요한",
-  "오성훈",
-  "옥지수",
-  "윤진경",
-  "윤진호",
-  "이수인",
-  "이시현",
-  "이양우",
-  "이찬주",
-  "이호찬",
-  "임소정",
-  "장혜식",
-  "전수진",
-  "조은별",
-  "최리",
-  "최민지",
-  "최서영",
-  "하태용",
-  "한소영",
-  "한지원",
+  "강민성",
+  "강원희",
+  "고창윤",
+  "공지현",
+  "김다은",
+  "김민주",
+  "김윤건",
+  "김종민",
+  "김준형",
+  "남원일",
+  "박세진",
+  "박수정",
+  "백인빈",
+  "서재호",
+  "신진욱",
+  "유동하",
+  "이상아",
+  "이선경",
+  "이승채",
+  "이윤학",
+  "임유빈",
+  "임태완",
+  "장운진",
+  "정세현",
+  "정혜진",
+  "차한솔",
+  "최아람",
+  "최현오",
+  "한경훈",
+  "허진권",
+  "황인택",
 ];
 
 async function assignAlgoReviewer(day) {
@@ -72,15 +72,16 @@ async function assignAlgoReviewer(day) {
     return;
   }
 
-  // peerReviewerList 가 배분된 결과
   peerReviewerList.forEach((el) => console.log(el));
 
   try {
-    // 이를 노션 데이터베이스에 반영하기 위해서는..
+    /*
 
-    // 1. 데이터베이스를 "retrieve" 하여 각 필드에 어떤 값이 들어갈 수 있는지 알아낸다 (multi select)
+      1. 데이터베이스를 "retrieve" 하여 각 필드에 어떤 값이 들어갈 수 있는지 알아낸다 (multi select)
 
-    // 예시 데이터: retrieve_database.json
+      예시 데이터: retrieve_database.json
+
+    */
     const databaseSchemeRes = await notionClient.databases.retrieve({
       database_id: process.env.NOTION_DATABASE_ID,
     });
@@ -97,9 +98,14 @@ async function assignAlgoReviewer(day) {
 
     console.log(propertySchemaList);
 
-    // 2. 데이터베이스에 "query" 하여 이름을 key, row id를 value 로 하는 객체를 생성한다
+    /*
 
-    // 예시 데이터: query_database.json
+      2. 데이터베이스에 "query" 하여 현재의 데이터베이스를 정보를 가져오고,
+      이를 바탕으로 { name: rowId } 형태의 객체를 생성한다.
+
+      예시 데이터: query_database.json
+
+    */
     const { results: queryResults } = await notionClient.databases.query({
       database_id: process.env.NOTION_DATABASE_ID,
       sorts: [
@@ -111,6 +117,8 @@ async function assignAlgoReviewer(day) {
       ],
     });
 
+    console.log("쿼리 결과", queryResults);
+
     const nameToRowIdMapper = queryResults.reduce((acc, row) => {
       acc[row.properties["이름"].title[0].plain_text] = row.id;
 
@@ -119,7 +127,11 @@ async function assignAlgoReviewer(day) {
 
     console.log(nameToRowIdMapper);
 
-    // 3. 준비된 데이터들을 활용하여 분배 결과를 데이터베이스에 업데이트 ("patch")
+    /*
+
+      3. 1, 2번 단계에서 준비된 데이터들을 활용하여 분배 결과를 데이터베이스에 업데이트(patch)한다.
+
+    */
     Object.entries(nameToRowIdMapper).forEach(([name, pageId], index) => {
       // TODO: index 대신 name으로 (peerReviewerList 데이터 구조 객체로 변경)
       const [codeReviewer1, codeReviewer2] = peerReviewerList[index];

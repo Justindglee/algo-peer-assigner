@@ -5,6 +5,7 @@ import getNotionClient from "../utils/getNotionClient.js";
 const notionClient = getNotionClient();
 
 async function getPropertySchemaList() {
+  // 예시 데이터: retrieve_database.json
   const databaseSchemeRes = await notionClient.databases.retrieve({
     database_id: process.env.NOTION_DATABASE_ID,
   });

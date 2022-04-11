@@ -8,6 +8,7 @@
 
 사용법
 
+- 사용 전, 꼭 constants/index.js 파일을 확인 후 올바른 변수를 입력하고 사용하세요.
 - `node index.js`
 
 작동 방식

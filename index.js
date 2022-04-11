@@ -1,19 +1,19 @@
 import env from "dotenv";
 env.config();
+
 import getNotionClient from "./utils/getNotionClient.js";
+const notionClient = getNotionClient();
+
+import { IS_TEST } from "./constants/index.js";
 import getPropertySchemaList from "./libs/getPropertySchemaList.js";
 import getNotionDBQueryResult from "./libs/getNotionDBQueryResult.js";
 import getPeerReviewerList from "./libs/getPeerReviewerList.js";
-
-const notionClient = getNotionClient();
 
 async function assignAlgoReviewer() {
   try {
     /*
 
       1. 데이터베이스를 "retrieve" 하여 각 필드에 어떤 값이 들어갈 수 있는지 알아낸다 (multi select)
-
-      예시 데이터: retrieve_database.json
 
     */
     const propertySchemaList = await getPropertySchemaList();
@@ -23,8 +23,6 @@ async function assignAlgoReviewer() {
 
       2. 데이터베이스에 "query" 하여 현재의 데이터베이스를 정보를 가져오고,
       이를 바탕으로 { name: rowId } 형태의 객체를 생성한다.
-
-      예시 데이터: query_database.json
 
     */
     const queryResult = await getNotionDBQueryResult();
@@ -63,6 +61,12 @@ async function assignAlgoReviewer() {
       4. 이전 단계들에서 준비된 데이터들을 활용하여 분배 결과를 데이터베이스에 업데이트(patch)한다.
 
     */
+    if (IS_TEST) {
+      console.log("\n<===== 테스트 중 입니다 =====>\n");
+
+      return;
+    }
+
     Object.entries(nameToRowIdMapper).forEach(([name, pageId], index) => {
       // TODO: index 대신 name으로 (peerReviewerList 데이터 구조 객체로 변경)
       const [codeReviewer1, codeReviewer2] = peerReviewerList[index];
@@ -78,6 +82,7 @@ async function assignAlgoReviewer() {
       console.log("코드리뷰 1", codeReviewer1, codeReviewer1Color);
       console.log("코드리뷰 2", codeReviewer2, codeReviewer2Color);
 
+      // TODO: 반영 전 초기화(삭제)
       notionClient.pages.update({
         page_id: pageId,
         properties: {

@@ -1,7 +1,7 @@
 /*
   @constant {boolean}
 
-  true이면 분배 결과가 노션에 반영되지 않습니다. 분배를 테스트하기 위한 옵션입니다.
+  false이면 분배 결과가 노션에 반영되지 않습니다. 분배를 테스트하기 위한 옵션입니다.
  */
 export const IS_TEST = false;
 

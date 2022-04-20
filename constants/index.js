@@ -6,13 +6,6 @@
 export const IS_TEST = false;
 
 /*
-  @constant {number}
-
-  알고리즘 문제와 동일하게 바꾸어 사용해야 합니다.
- */
-export const DAY = 10;
-
-/*
   @constant {Array}
 
   사정상 알고리즘 리뷰를 진행할 수 없는 인원의 "이름" 을 string으로 입력하면 됩니다.

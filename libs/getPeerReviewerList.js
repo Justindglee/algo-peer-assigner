@@ -1,30 +1,51 @@
-import { DAY } from "../constants/index.js";
+function mixOrder(arr) {
+  const originalArr = [...arr];
 
-function getPeerReviewerList(bootcampStudentList) {
-  const students1 = [...bootcampStudentList];
-  const students2 = [...bootcampStudentList];
-  const peerReviewerList = new Array(students1.length)
-    .fill(null)
-    .map((item) => []);
+  const halfIndex = Math.floor(originalArr.length / 2);
+  const randomIndex = Math.floor(
+    Math.random() * originalArr.length || halfIndex
+  );
 
-  // 0 혹은 33이 나오면 안됩니다.
-  let calculatedDay = (DAY % (bootcampStudentList.length - 1)) + 1;
+  const slicedArr = originalArr.splice(randomIndex);
+  const result = slicedArr.concat(originalArr);
 
-  const splicedStudent1 = students1.splice(0, calculatedDay);
-  const splicedStudent2 = students2.splice(-calculatedDay);
+  return result;
+}
 
-  const peerReviewer1 = students1.concat(splicedStudent1);
-  const peerReviewer2 = splicedStudent2.concat(students2);
-
-  for (let i = 0; i < peerReviewer1.length; i++) {
-    peerReviewerList[i].push(peerReviewer1[i]);
-  }
-
-  for (let j = 0; j < peerReviewer2.length; j++) {
-    peerReviewerList[j].push(peerReviewer2[j]);
-  }
+function assignPeers(peerReviewerList, peerList) {
+  Object.keys(peerReviewerList).forEach((studentName, index) => {
+    peerReviewerList[studentName].push(peerList[index]);
+  });
 
   return peerReviewerList;
+}
+
+function getPeerReviewerList(studentList) {
+  const firstPeerList = mixOrder(studentList);
+  let secondPeerList = mixOrder(studentList);
+
+  (function processMixOrder() {
+    if (firstPeerList[0] !== secondPeerList[0]) {
+      return;
+    }
+
+    secondPeerList = mixOrder(secondPeerList);
+
+    processMixOrder();
+  })();
+
+  const peerReviewerList = studentList.reduce((acc, studentName) => {
+    acc[studentName] = [];
+
+    return acc;
+  }, {});
+
+  const assignedResult = assignPeers(
+    assignPeers(peerReviewerList, firstPeerList),
+    secondPeerList
+  );
+
+  return assignedResult;
 }
 
 export default getPeerReviewerList;

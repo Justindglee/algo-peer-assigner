@@ -4,7 +4,7 @@ env.config();
 import getNotionClient from "./utils/getNotionClient.js";
 const notionClient = getNotionClient();
 
-import { IS_TEST } from "./constants/index.js";
+import { IS_TEST, EXCLUDED_STUDENTS } from "./constants/index.js";
 import getPropertySchemaList from "./libs/getPropertySchemaList.js";
 import getNotionDBQueryResult from "./libs/getNotionDBQueryResult.js";
 import getPeerReviewerList from "./libs/getPeerReviewerList.js";
@@ -17,7 +17,6 @@ async function assignAlgoReviewer() {
 
     */
     const propertySchemaList = await getPropertySchemaList();
-    console.log("schema list...", propertySchemaList);
 
     /*
 
@@ -33,8 +32,6 @@ async function assignAlgoReviewer() {
       return acc;
     }, {});
 
-    console.log("{ name: rowId }\n", nameToRowIdMapper);
-
     /*
 
       3. 노션DB에 쿼리하여 가져온 부트캠프 학생 이름 리스트를 바탕으로 2인 1조의 리뷰어 리스트를 만든다.
@@ -47,14 +44,26 @@ async function assignAlgoReviewer() {
 
     const peerReviewerList = getPeerReviewerList(bootcampStudentList);
 
-    if (peerReviewerList.length !== bootcampStudentList.length) {
+    if (Object.keys(peerReviewerList).length !== bootcampStudentList.length) {
       console.log("할당해야할 리뷰어 수가 일치하지 않습니다");
       return;
     }
 
     console.log("\n<=== 리뷰어 분배내역 (peerReviewerList) ===>");
-    peerReviewerList.forEach((el) => console.log(el));
-    console.log("<=== 리뷰어 분배내역 끝 ===>\n");
+
+    for (const studentName in peerReviewerList) {
+      const peerList = peerReviewerList[studentName];
+
+      console.log(`${studentName}님이 리뷰할 대상은 ${[...peerList]} 입니다.`);
+    }
+
+    console.log(
+      `<=== 리뷰어 분배내역 끝. ===> ${
+        EXCLUDED_STUDENTS.length
+          ? `${EXCLUDED_STUDENTS}님은 제외되었습니다.`
+          : ""
+      } \n`
+    );
 
     /*
 
@@ -67,9 +76,8 @@ async function assignAlgoReviewer() {
       return;
     }
 
-    Object.entries(nameToRowIdMapper).forEach(([name, pageId], index) => {
-      // TODO: index 대신 name으로 (peerReviewerList 데이터 구조 객체로 변경)
-      const [codeReviewer1, codeReviewer2] = peerReviewerList[index];
+    Object.entries(nameToRowIdMapper).forEach(([name, pageId]) => {
+      const [codeReviewer1, codeReviewer2] = peerReviewerList[name];
 
       const codeReviewer1Color = propertySchemaList["코드리뷰 1"].find(
         (option) => option.name === codeReviewer1
@@ -79,10 +87,7 @@ async function assignAlgoReviewer() {
         (option) => option.name === codeReviewer2
       ).color;
 
-      console.log("코드리뷰 1", codeReviewer1, codeReviewer1Color);
-      console.log("코드리뷰 2", codeReviewer2, codeReviewer2Color);
-
-      // TODO: 반영 전 초기화(삭제)
+      // TODO: 반영 전 초기화(기존 분배내역 삭제)
       notionClient.pages.update({
         page_id: pageId,
         properties: {
@@ -105,8 +110,10 @@ async function assignAlgoReviewer() {
         },
       });
     });
+
+    console.log("Notion DB 업데이트 완료");
   } catch (err) {
-    console.log(err);
+    console.log("Notion DB 업데이트 중 에러 발생", err);
   }
 }
 
